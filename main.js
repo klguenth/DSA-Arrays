@@ -12,5 +12,3 @@ function main(){
 
     console.log(arr);
 }
-
-console.log(main(5));

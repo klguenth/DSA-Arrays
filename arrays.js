@@ -2,9 +2,9 @@ const Memory = require('./memory.js');
 
 class Array {
     constructor() {
+        this.memory = new Memory();
         this.length = 0;
         this.ptr = this.memory.allocate(this.length);
-        this.memory = new Memory();
     }
     push(value) {
         this._resize(this.length + 1);
@@ -13,12 +13,12 @@ class Array {
     }
     _resize(size) {
         const oldPtr = this.ptr;
-        this.ptr = memory.allocate(size);
+        this.ptr = this.memory.allocate(size);
         if (this.ptr === null) {
             throw new Error('Out of memory');
         }
         this.memory.copy(this.ptr, oldPtr, this.length);
-        this.memory.free(oldPtr);
+        this.memory.free(oldPtr);s
         this.capacity = size;
     }
     get(index) {
