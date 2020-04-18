@@ -18,7 +18,7 @@ class Array {
             throw new Error('Out of memory');
         }
         this.memory.copy(this.ptr, oldPtr, this.length);
-        this.memory.free(oldPtr);s
+        this.memory.free(oldPtr);
         this.capacity = size;
     }
     get(index) {
